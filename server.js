@@ -23,7 +23,7 @@ app.use((req, res, next)=>{
 	console.log();
 	fs.appendFile('app-server.log', log + '\n', (err) => {
 	  if (err) throw err;
-	  console.log('The "data to append" was appended to file!');
+	  console.log('The data to append was appended to file!');
 	});
 	next();
 });
@@ -44,6 +44,12 @@ app.get('/about',(req, res)=>{
 	res.render('about.hbs',{
 		pageTitle:'About Page',
 		// currentYear: new Date().getFullYear()
+	});
+});
+
+app.get('/projects',(req, res)=>{
+	res.render('projects.hbs',{
+		pageTitle: 'Projects'
 	});
 });
 
